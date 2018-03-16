@@ -16,6 +16,7 @@
     "co-prompt": "^1.0.0",
     "commander": "^2.15.0",
     "fs-extra": "^5.0.0",
+    "request": "^2.85.0",
     "shelljs": "^0.8.1"
   }
 }
