@@ -3,13 +3,14 @@
 'use strict'
 
 const fsExtra = require('fs-extra')
-const accessToken = process.argv.slice(2)
+const args = process.argv.slice(2)
 
-console.log(accessToken)
-
-fsExtra.writeJson('./access-token.json', {
-    'access-token': accessToken[0],
-},
-{
-    encoding: 'utf-8'
-})
+if (args[0] === 'set') {
+    fsExtra.writeJson('./access-token.json', {
+        'access-token': args[1],
+    },
+    {
+        encoding: 'utf-8'
+    })
+    console.log(args[1])
+}
