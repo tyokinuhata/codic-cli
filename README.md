@@ -53,14 +53,6 @@ casingに指定可能な命名規則については**命名規則の設定**を�
 $ ./codic.js get <japanese_word> <casing>
 ```
 
-#### ヘルプの表示
-
-各コマンドの使い方や機能, 指定できるオプションを表示する.
-
-```bash
-$ ./codic.js help
-```
-
 #### ネーミング履歴を表示
 
 ```bash
@@ -71,4 +63,12 @@ $ ./codic.js history
 
 ```bash
 $ ./codic.js history clear
+```
+
+#### ヘルプの表示
+
+各コマンドの使い方や指定できるオプションを表示する.
+
+```bash
+$ ./codic.js help
 ```

@@ -72,9 +72,6 @@ if (args[0] === 'conf' && args[1] === 'token') {
         console.log(data[0].translated_text)
     })
 
-/** ヘルプの表示 */
-} else if (args[0] === 'help') {
-
 /** ネーミング履歴の削除 */
 } else if (args[0] === 'history' && args[1] === 'clear') {
     fsExtra.writeJSONSync('./history.json', {
@@ -87,4 +84,14 @@ if (args[0] === 'conf' && args[1] === 'token') {
     for (let i = 0; i < history.names.length; i++) {
         console.log(i++ + ': ' + history.names[i].request + ' -> ' + history.names[i].response)
     }
+
+/** ヘルプの表示 */
+} else if (args[0] === 'help') {
+    console.log('./codic.js conf token <your_access_token>')
+    console.log('./codic.js conf casing <casing>')
+    console.log('./codic.js conf list')
+    console.log('./codic.js get <japanese_word> <casing>')
+    console.log('./codic.js history')
+    console.log('./codic.js history clear')
+    console.log('./codic.js help')
 }
