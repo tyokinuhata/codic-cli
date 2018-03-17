@@ -8,7 +8,7 @@ const request = require('request');
 const args = process.argv.slice(2)
 
 /** アクセストークンの設定 */
-if (args[0] === 'conf' && args[1] === '-a') {
+if (args[0] === 'conf' && args[1] === '-t') {
     const config = fsExtra.readJSONSync('./codic-config.json')
     config['access-token'] = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
@@ -42,6 +42,12 @@ if (args[0] === 'conf' && args[1] === '-a') {
         },
         json: true
     }, (err, req, data) => {
+        const history = fsExtra.readJSONSync('./history.json')
+        history.names.push({
+            'request': args[1],
+            'response': data[0].translated_text
+        })
+        fsExtra.writeJSONSync('./history.json', history)
         console.log(data[0].translated_text)
     })
 
@@ -56,5 +62,8 @@ if (args[0] === 'conf' && args[1] === '-a') {
 
 /** 過去のネーミングを取得 */
 } else if (args[0] === 'history') {
-
+    const history = fsExtra.readJSONSync('./history.json')
+    for (let name of history.names) {
+        console.log(name)
+    }
 }
