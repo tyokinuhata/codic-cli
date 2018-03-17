@@ -7,9 +7,16 @@ const request = require('request');
 
 const args = process.argv.slice(2)
 
-if (args[0] === 'set') {
-    fsExtra.writeJson('./access-token.json', {
-        'access-token': args[1],
+if (args[0] === 'set' && args[1] === '-a') {
+    fsExtra.writeJson('./codic-config.json', {
+        'access-token': args[2],
+    },
+    {
+        encoding: 'utf-8'
+    })
+} else if(args[0] === 'set' && args[1] === '-t') {
+    fsExtra.appendJson('./codic-config.json', {
+        'casing': args[2],
     },
     {
         encoding: 'utf-8'
