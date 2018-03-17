@@ -16,6 +16,7 @@ if (args[0] === 'set') {
     })
 } else if (args[0] === 'get') {
     const accessToken = fsExtra.readJsonSync('./access-token.json')['access-token']
+    const casing = args[2] ? args[2] : 'camel'
 
     request.get({
         url: 'https://api.codic.jp/v1/engine/translate.json',
@@ -24,7 +25,7 @@ if (args[0] === 'set') {
         },
         qs: {
             text: args[1],
-            casing: 'camel'
+            casing: casing
         },
         json: true
     }, (err, req, data) => {
