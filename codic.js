@@ -3,7 +3,6 @@
 'use strict'
 
 const fsExtra = require('fs-extra')
-const fs = require('fs')
 const request = require('request');
 
 const args = process.argv.slice(2)
