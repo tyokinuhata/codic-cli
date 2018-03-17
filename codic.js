@@ -31,6 +31,21 @@ if (args[0] === 'conf' && args[1] === '-t') {
         casing = config.casing
     }
 
+    switch(casing) {
+        case 'snake':
+            casing = 'lower underscore'
+            break
+        case 'upper':
+            casing = 'upper underscore'
+            break
+        case 'kebab':
+            casing = 'hyphen'
+            break
+        case 'space':
+            casing = ''
+            break
+    }
+
     request.get({
         url: 'https://api.codic.jp/v1/engine/translate.json',
         headers: {
