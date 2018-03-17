@@ -2,14 +2,14 @@
   "name": "codic-cli",
   "version": "1.0.0",
   "description": "codic command line tool.",
-  "main": "index.js",
+  "main": "codic.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kazukichi",
   "license": "MIT",
   "bin": {
-    "codic": "./index.js"
+    "codic": "./codic.js"
   },
   "dependencies": {
     "co": "^4.6.0",
