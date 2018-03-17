@@ -21,8 +21,6 @@
 
 ラビット「いつもありがとう！らりっくまくん！これで安心して進捗が出せるウサ！ともだちのバットラビット君にも教えてあげるウサ！」
 
-http://mangamura.org/
-
 # つかいかた
 
 ### インストール
@@ -96,3 +94,9 @@ $ codic history clear
 ```bash
 $ codic help
 ```
+
+# リンク
+
+[GitHub](https://github.com/tyokinuhata/codic-cli)  
+[npm](https://www.npmjs.com/package/codic-cli)  
+[漫画村](http://mangamura.org/)  
