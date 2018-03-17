@@ -3,26 +3,21 @@
 'use strict'
 
 const fsExtra = require('fs-extra')
+const fs = require('fs')
 const request = require('request');
 
 const args = process.argv.slice(2)
 
 if (args[0] === 'set' && args[1] === '-a') {
-    fsExtra.writeJson('./codic-config.json', {
-        'access-token': args[2],
-    },
-    {
-        encoding: 'utf-8'
-    })
+    const config = fsExtra.readJSONSync('./codic-config.json')
+    config['access-token'] = args[2]
+    fsExtra.writeJSONSync('./codic-config.json', config)
 } else if(args[0] === 'set' && args[1] === '-t') {
-    fsExtra.appendJson('./codic-config.json', {
-        'casing': args[2],
-    },
-    {
-        encoding: 'utf-8'
-    })
+    const config = fsExtra.readJSONSync('./codic-config.json')
+    config.codic = args[2]
+    fsExtra.writeJSONSync('./codic-config.json', config)
 } else if (args[0] === 'get') {
-    const accessToken = fsExtra.readJsonSync('./access-token.json')['access-token']
+    const accessToken = fsExtra.readJsonSync('./codic-config.json')['access-token']
     const casing = args[2] ? args[2] : 'camel'
 
     request.get({
