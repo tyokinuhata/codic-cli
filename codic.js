@@ -66,4 +66,10 @@ if (args[0] === 'conf' && args[1] === '-t') {
     for (let name of history.names) {
         console.log(name)
     }
+
+/** 過去のネーミングをリセット */
+} else if (args[0] === 'clear') {
+    fsExtra.writeJSONSync('./history.json', {
+        'names': []
+    })
 }
