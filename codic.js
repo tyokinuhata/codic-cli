@@ -14,17 +14,16 @@ if (args[0] === 'set') {
     {
         encoding: 'utf-8'
     })
-    console.log(args[1])
-}
+} else if (args[0] === 'get') {
+    const accessToken = fsExtra.readJsonSync('./access-token.json')['access-token']
 
-if (args[0] === 'get') {
     request.get({
         url: 'https://api.codic.jp/v1/engine/translate.json',
         headers: {
-            'Authorization': 'Bearer test'
+            'Authorization': 'Bearer ' + accessToken
         },
         qs: {
-            text: '得点を取得する',
+            text: args[1],
             casing: 'camel'
         },
         json: true
