@@ -63,8 +63,8 @@ if (args[0] === 'conf' && args[1] === '-t') {
 /** 過去のネーミングを取得 */
 } else if (args[0] === 'history') {
     const history = fsExtra.readJSONSync('./history.json')
-    for (let name of history.names) {
-        console.log(name)
+    for (let i = 0; i < history.names.length; i++) {
+        console.log(i++ + ': ' + history.names[i].request + ' -> ' + history.names[i].response)
     }
 
 /** 過去のネーミングをリセット */
