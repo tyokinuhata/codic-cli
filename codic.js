@@ -50,6 +50,9 @@ if (args[0] === 'conf' && args[1] === '-a') {
 
 /** 設定一覧の表示 */
 } else if (args[0] === 'list') {
+    const config = fsExtra.readJsonSync('./codic-config.json')
+    console.log('access-token: ' + config['access-token'])
+    console.log('casing: ' + config.casing)
 
 /** 過去のネーミングを取得 */
 } else if (args[0] === 'history') {
