@@ -11,13 +11,22 @@ if (args[0] === 'set' && args[1] === '-a') {
     const config = fsExtra.readJSONSync('./codic-config.json')
     config['access-token'] = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
+
 } else if(args[0] === 'set' && args[1] === '-t') {
     const config = fsExtra.readJSONSync('./codic-config.json')
     config.codic = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
+
 } else if (args[0] === 'get') {
-    const accessToken = fsExtra.readJsonSync('./codic-config.json')['access-token']
-    const casing = args[2] ? args[2] : 'camel'
+    const config = fsExtra.readJsonSync('./codic-config.json')
+    const accessToken = config['access-token']
+
+    let casing = 'camel'
+    if (args[2]) {
+        casing = args[2]
+    } else if (config.casing && config.casing !== '') {
+        casing = config.casing
+    }
 
     request.get({
         url: 'https://api.codic.jp/v1/engine/translate.json',
