@@ -8,16 +8,22 @@ const request = require('request');
 const args = process.argv.slice(2)
 
 /** アクセストークンの設定 */
-if (args[0] === 'conf' && args[1] === '-t') {
+if (args[0] === 'conf' && args[1] === 'token') {
     const config = fsExtra.readJSONSync('./codic-config.json')
     config['access-token'] = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
 
 /** 命名規則の設定 */
-} else if(args[0] === 'conf' && args[1] === '-c') {
+} else if(args[0] === 'conf' && args[1] === 'casing') {
     const config = fsExtra.readJSONSync('./codic-config.json')
     config.casing = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
+
+/** 設定一覧の表示 */
+} else if (args[0] === 'conf' && args[1] === 'list') {
+    const config = fsExtra.readJsonSync('./codic-config.json')
+    console.log('access-token: ' + config['access-token'])
+    console.log('casing: ' + config.casing)
 
 /** ネーミングの取得 */
 } else if (args[0] === 'get') {
@@ -69,11 +75,11 @@ if (args[0] === 'conf' && args[1] === '-t') {
 /** ヘルプの表示 */
 } else if (args[0] === 'help') {
 
-/** 設定一覧の表示 */
-} else if (args[0] === 'list') {
-    const config = fsExtra.readJsonSync('./codic-config.json')
-    console.log('access-token: ' + config['access-token'])
-    console.log('casing: ' + config.casing)
+/** ネーミング履歴の削除 */
+} else if (args[0] === 'history' && args[1] === 'clear') {
+    fsExtra.writeJSONSync('./history.json', {
+        'names': []
+    })
 
 /** ネーミング履歴を取得 */
 } else if (args[0] === 'history') {
@@ -81,10 +87,4 @@ if (args[0] === 'conf' && args[1] === '-t') {
     for (let i = 0; i < history.names.length; i++) {
         console.log(i++ + ': ' + history.names[i].request + ' -> ' + history.names[i].response)
     }
-
-/** ネーミング履歴の削除 */
-} else if (args[0] === 'clear') {
-    fsExtra.writeJSONSync('./history.json', {
-        'names': []
-    })
 }
