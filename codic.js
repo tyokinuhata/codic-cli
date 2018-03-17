@@ -87,11 +87,11 @@ if (args[0] === 'conf' && args[1] === 'token') {
 
 /** ヘルプの表示 */
 } else if (args[0] === 'help') {
-    console.log('./codic.js conf token <your_access_token>')
-    console.log('./codic.js conf casing <casing>')
-    console.log('./codic.js conf list')
-    console.log('./codic.js get <japanese_word> <casing>')
-    console.log('./codic.js history')
-    console.log('./codic.js history clear')
-    console.log('./codic.js help')
+    console.log('codic conf token <your_access_token>')
+    console.log('codic conf casing <casing>')
+    console.log('codic conf list')
+    console.log('codic get <japanese_word> <casing>')
+    console.log('codic history')
+    console.log('codic history clear')
+    console.log('codic help')
 }
