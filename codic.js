@@ -7,14 +7,14 @@ const request = require('request');
 
 const args = process.argv.slice(2)
 
-if (args[0] === 'set' && args[1] === '-a') {
+if (args[0] === 'conf' && args[1] === '-a') {
     const config = fsExtra.readJSONSync('./codic-config.json')
     config['access-token'] = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
 
-} else if(args[0] === 'set' && args[1] === '-t') {
+} else if(args[0] === 'conf' && args[1] === '-c') {
     const config = fsExtra.readJSONSync('./codic-config.json')
-    config.codic = args[2]
+    config.casing = args[2]
     fsExtra.writeJSONSync('./codic-config.json', config)
 
 } else if (args[0] === 'get') {
