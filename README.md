@@ -25,21 +25,20 @@ http://mangamura.org/
 
 # つかいかた
 
-### Setup
+### インストール
 
 ```bash
-$ npm i
-$ chmod +x ./codic.js
+$ npm i -g codic-cli
 ```
 
-### Commands
+### コマンド一覧
 
 #### アクセストークンの設定
 
 https://codic.jp/my/api_status からアクセストークンを取得し, 以下のコマンドを実行する.
 
 ```bash
-$ ./codic.js conf token <your_access_token>
+$ codic conf token <your_access_token>
 ```
 
 #### 命名規則の設定
@@ -47,7 +46,7 @@ $ ./codic.js conf token <your_access_token>
 命名規則の設定はオプション.
 
 ```bash
-$ ./codic.js conf casing <casing>
+$ codic conf casing <casing>
 ```
 
 命名規則に使用可能な文字列
@@ -66,7 +65,7 @@ $ ./codic.js conf casing <casing>
 各設定項目(アクセストークン, 命名規則)の設定状況を表示する.
 
 ```bash
-$ ./codic.js conf list
+$ codic conf list
 ```
 
 #### ネーミングの取得
@@ -75,19 +74,19 @@ casingはオプションのため付けなくて良い.
 casingに指定可能な命名規則については**命名規則の設定**を参照.
 
 ```bash
-$ ./codic.js get <japanese_word> <casing>
+$ codic get <japanese_word> <casing>
 ```
 
 #### ネーミング履歴を表示
 
 ```bash
-$ ./codic.js history
+$ codic history
 ```
 
 #### ネーミング履歴の削除
 
 ```bash
-$ ./codic.js history clear
+$ codic history clear
 ```
 
 #### ヘルプの表示
@@ -95,5 +94,5 @@ $ ./codic.js history clear
 各コマンドの使い方や指定できるオプションを表示する.
 
 ```bash
-$ ./codic.js help
+$ codic help
 ```
