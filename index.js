@@ -9,25 +9,25 @@ const args = process.argv.slice(2)
 
 /** アクセストークンの設定 */
 if (args[0] === 'conf' && args[1] === 'token') {
-    const config = fsExtra.readJSONSync('./codic-config.json')
+    const config = fsExtra.readJSONSync(__dirname + '/codic-config.json')
     config['access-token'] = args[2]
-    fsExtra.writeJSONSync('./codic-config.json', config)
+    fsExtra.writeJSONSync(__dirname + '/codic-config.json', config)
 
 /** 命名規則の設定 */
 } else if(args[0] === 'conf' && args[1] === 'casing') {
-    const config = fsExtra.readJSONSync('./codic-config.json')
+    const config = fsExtra.readJSONSync(__dirname + '/codic-config.json')
     config.casing = args[2]
-    fsExtra.writeJSONSync('./codic-config.json', config)
+    fsExtra.writeJSONSync(__dirname + '/codic-config.json', config)
 
 /** 設定一覧の表示 */
 } else if (args[0] === 'conf' && args[1] === 'list') {
-    const config = fsExtra.readJsonSync('./codic-config.json')
+    const config = fsExtra.readJsonSync(__dirname + '/codic-config.json')
     console.log('access-token: ' + config['access-token'])
     console.log('casing: ' + config.casing)
 
 /** ネーミングの取得 */
 } else if (args[0] === 'get') {
-    const config = fsExtra.readJsonSync('./codic-config.json')
+    const config = fsExtra.readJsonSync(__dirname + '/codic-config.json')
     const accessToken = config['access-token']
 
     let casing = 'camel'
@@ -63,24 +63,24 @@ if (args[0] === 'conf' && args[1] === 'token') {
         },
         json: true
     }, (err, req, data) => {
-        const history = fsExtra.readJSONSync('./codic-history.json')
+        const history = fsExtra.readJSONSync(__dirname + '/codic-history.json')
         history.names.push({
             'request': args[1],
             'response': data[0].translated_text
         })
-        fsExtra.writeJSONSync('./codic-history.json', history)
+        fsExtra.writeJSONSync(__dirname + '/codic-history.json', history)
         console.log(data[0].translated_text)
     })
 
 /** ネーミング履歴の削除 */
 } else if (args[0] === 'history' && args[1] === 'clear') {
-    fsExtra.writeJSONSync('./history.json', {
+    fsExtra.writeJSONSync(__dirname + '/codic-history.json', {
         'names': []
     })
 
 /** ネーミング履歴を取得 */
 } else if (args[0] === 'history') {
-    const history = fsExtra.readJSONSync('./codic-history.json')
+    const history = fsExtra.readJSONSync(__dirname + '/codic-history.json')
     for (let i = 0; i < history.names.length; i++) {
         console.log(i++ + ': ' + history.names[i].request + ' -> ' + history.names[i].response)
     }
