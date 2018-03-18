@@ -95,6 +95,12 @@ $ codic history clear
 $ codic help
 ```
 
+### バージョンの確認
+
+```bash
+$ codic version
+```
+
 # リンク
 
 [GitHub](https://github.com/tyokinuhata/codic-cli)  
