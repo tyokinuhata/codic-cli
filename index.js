@@ -63,12 +63,12 @@ if (args[0] === 'conf' && args[1] === 'token') {
         },
         json: true
     }, (err, req, data) => {
-        const history = fsExtra.readJSONSync('./history.json')
+        const history = fsExtra.readJSONSync('./codic-history.json')
         history.names.push({
             'request': args[1],
             'response': data[0].translated_text
         })
-        fsExtra.writeJSONSync('./history.json', history)
+        fsExtra.writeJSONSync('./codic-history.json', history)
         console.log(data[0].translated_text)
     })
 
@@ -80,7 +80,7 @@ if (args[0] === 'conf' && args[1] === 'token') {
 
 /** ネーミング履歴を取得 */
 } else if (args[0] === 'history') {
-    const history = fsExtra.readJSONSync('./history.json')
+    const history = fsExtra.readJSONSync('./codic-history.json')
     for (let i = 0; i < history.names.length; i++) {
         console.log(i++ + ': ' + history.names[i].request + ' -> ' + history.names[i].response)
     }
