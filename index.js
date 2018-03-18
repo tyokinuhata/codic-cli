@@ -9,7 +9,7 @@ const pkg = require(__dirname + '/package.json')
 const args = process.argv.slice(2)
 
 /** 設定 */
-const conf = {
+const set = {
     token: (file, token) => {
         const config = fsExtra.readJSONSync(file)
         config['access-token'] = token
@@ -107,12 +107,12 @@ const version = () => {
 
 
 
-if (args[0] === 'conf' && args[1] === 'token') {
-    conf.token(__dirname + '/codic-config.json', args[2])
-} else if(args[0] === 'conf' && args[1] === 'casing') {
-    conf.casing(__dirname + '/codic-config.json', args[2])
-} else if (args[0] === 'conf' && args[1] === 'list') {
-    conf.list(__dirname + '/codic-config.json')
+if (args[0] === 'set' && args[1] === 'token') {
+    set.token(__dirname + '/codic-config.json', args[2])
+} else if(args[0] === 'set' && args[1] === 'casing') {
+    set.casing(__dirname + '/codic-config.json', args[2])
+} else if (args[0] === 'set' && args[1] === 'list') {
+    set.list(__dirname + '/codic-config.json')
 } else if (args[0] === 'get') {
     get(__dirname + '/codic-config.json', __dirname + '/codic-history.json', args[1], args[2])
 } else if (args[0] === 'history' && args[1] === 'clear') {
