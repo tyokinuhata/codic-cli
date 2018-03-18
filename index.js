@@ -3,7 +3,8 @@
 'use strict'
 
 const fsExtra = require('fs-extra')
-const request = require('request');
+const request = require('request')
+const pkg = require(__dirname + '/package.json')
 
 const args = process.argv.slice(2)
 
@@ -94,4 +95,6 @@ if (args[0] === 'conf' && args[1] === 'token') {
     console.log('codic history')
     console.log('codic history clear')
     console.log('codic help')
+} else if (args[0] === 'version') {
+    console.log('v' + pkg.version)
 }
