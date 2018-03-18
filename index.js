@@ -95,6 +95,8 @@ if (args[0] === 'conf' && args[1] === 'token') {
     console.log('codic history')
     console.log('codic history clear')
     console.log('codic help')
+
+/** バージョンの表示 */
 } else if (args[0] === 'version') {
     console.log('v' + pkg.version)
 }
