@@ -36,7 +36,7 @@ $ npm i -g codic-cli
 https://codic.jp/my/api_status からアクセストークンを取得し, 以下のコマンドを実行する.
 
 ```bash
-$ codic conf token <your_access_token>
+$ codic set token <your_access_token>
 ```
 
 #### 命名規則の設定
@@ -44,7 +44,7 @@ $ codic conf token <your_access_token>
 命名規則の設定はオプション.
 
 ```bash
-$ codic conf casing <casing>
+$ codic set casing <casing>
 ```
 
 命名規則に使用可能な文字列
@@ -63,12 +63,12 @@ $ codic conf casing <casing>
 各設定項目(アクセストークン, 命名規則)の設定状況を表示する.
 
 ```bash
-$ codic conf list
+$ codic set list
 ```
 
 #### ネーミングの取得
 
-casingはオプションのため付けなくて良い.  
+casingはオプション.  
 casingに指定可能な命名規則については**命名規則の設定**を参照.
 
 ```bash
