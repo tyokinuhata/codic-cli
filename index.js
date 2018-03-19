@@ -11,17 +11,17 @@ const version = require(__dirname + '/lib/version.js')
 
 const main = () => {
     if (args[0] === 'set' && args[1] === 'token') {
-        set.set.token(__dirname + '/codic-config.json', args[2])
+        set.token(__dirname + '/codic-config.json', args[2])
     } else if(args[0] === 'set' && args[1] === 'casing') {
-        set.set.casing(__dirname + '/codic-config.json', args[2])
+        set.casing(__dirname + '/codic-config.json', args[2])
     } else if (args[0] === 'set' && args[1] === 'list') {
-        set.set.list(__dirname + '/codic-config.json')
+        set.list(__dirname + '/codic-config.json')
     } else if (args[0] === 'get') {
-        get(__dirname + '/codic-config.json', __dirname + '/codic-history.json', args[1], args[2])
+        get.get(__dirname + '/codic-config.json', __dirname + '/codic-history.json', args[1], args[2])
     } else if (args[0] === 'history' && args[1] === 'clear') {
-        history.history.clear(__dirname + '/codic-history.json')
+        history.clear(__dirname + '/codic-history.json')
     } else if (args[0] === 'history') {
-        history.history.history(__dirname + '/codic-history.json')
+        history.history(__dirname + '/codic-history.json')
     } else if (args[0] === 'help') {
         help.help()
     } else if (args[0] === 'version') {
