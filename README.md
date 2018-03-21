@@ -101,6 +101,14 @@ $ codic help
 $ codic version
 ```
 
+### 例
+
+```bash
+$ codic set token ZEPbvj9CcRdqaSGfwqbrCJf1RAORKjXTOk
+$ codic get 得点を取得する
+getScore
+```
+
 # リンク
 
 [GitHub](https://github.com/tyokinuhata/codic-cli)  
