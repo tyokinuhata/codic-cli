@@ -41,7 +41,7 @@ $ codic set token <your_access_token>
 
 #### 命名規則の設定
 
-命名規則の設定はオプション.
+命名規則の設定はオプションのため省略可能.
 
 ```bash
 $ codic set casing <casing>
@@ -69,7 +69,8 @@ $ codic set list
 #### ネーミングの取得
 
 casingはオプション.  
-casingに指定可能な命名規則については**命名規則の設定**を参照.
+casingに指定可能な命名規則については**命名規則の設定**を参照.  
+また, 命名規則は, getコマンドの引数 > 設定ファイル > デフォルト値(camel) の順で優先される.
 
 ```bash
 $ codic get <japanese_word> <casing>
