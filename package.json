@@ -1,6 +1,6 @@
 {
   "name": "codic-cli",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "codic command line tool.",
   "main": "index.js",
   "scripts": {
