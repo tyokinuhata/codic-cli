@@ -1,3 +1,5 @@
+バグ, 改善点の報告は [こちら](https://github.com/tyokinuhata/codic-cli/issues) まで  
+
 # codic-cliとは
 らりっくま「ラビットくん 突然だけどcodic-cliについて説明するよ」
 
@@ -114,4 +116,4 @@ getScore
 
 [GitHub](https://github.com/tyokinuhata/codic-cli)  
 [npm](https://www.npmjs.com/package/codic-cli)  
-[漫画村](http://mangamura.org/)  
+~~[漫画村](http://mangamura.org/)~~  
