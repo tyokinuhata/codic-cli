@@ -98,7 +98,7 @@ $ codic history clear
 $ codic help
 ```
 
-### バージョンの確認
+#### バージョンの確認
 
 ```bash
 $ codic version
